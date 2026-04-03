@@ -1,6 +1,6 @@
 ---
 name: qa-wiki
-description: This skill should be used when the user asks "查一下wiki", "知识库里有没有", "帮我查", or any question that should be answered from the Obsidian knowledge base. Provides the search and Q&A workflow.
+description: This skill should be used when the user asks to "look this up in my Obsidian knowledge base", "search the wiki for X", "what does my knowledge base say about X", "check my Obsidian vault for information on X", or asks any question that should be answered by searching the Obsidian wiki rather than from general knowledge.
 ---
 
 # Wiki Q&A Workflow

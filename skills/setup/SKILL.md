@@ -22,7 +22,7 @@ VAULT_PATH="/absolute/path/to/your/vault"
 
 1. **Determine vault path**
    - If `$ARGUMENTS` is non-empty, use it directly as the vault path
-   - Otherwise ask the user: "请输入你的 Obsidian vault 完整路径（例如 /Users/yourname/Documents/My Vault）："
+   - Otherwise ask the user: "Please enter the full path to your Obsidian vault (e.g. /Users/yourname/Documents/My Vault):"
 
 2. **Validate** the path exists:
    ```bash
@@ -38,5 +38,5 @@ VAULT_PATH="/absolute/path/to/your/vault"
 4. **Confirm success** with a summary:
    - Config saved to `~/.claude/obsidian-vault.conf`
    - Today's daily note path: `<vault-path>/daily/YYYY-MM-DD.md`
-   - Active trigger words: "记录一下", URL paste, "查一下wiki", "编译知识库", "出报告"
+   - Active skills: daily-log, compile-wiki, qa-wiki, health-check
    - To reconfigure: `/obsidian-vault:setup [new-path]`

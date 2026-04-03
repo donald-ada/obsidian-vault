@@ -1,6 +1,6 @@
 ---
 name: daily-log
-description: This skill should be used when the user says "记录一下", "记一下", "写进日志", or asks to log a problem, solution, or technical note into their Obsidian daily note. Provides the structured entry workflow.
+description: This skill should be used when the user asks to "log this to my Obsidian knowledge base", "record this in my daily note", "save this problem and solution to my knowledge base", "write this to my Obsidian daily log", or wants to capture a technical note, bug fix, insight, or solved problem into their Obsidian vault's daily note.
 ---
 
 # Daily Development Log Workflow
@@ -28,27 +28,27 @@ date: YYYY-MM-DD
 
 # YYYY-MM-DD
 
-## 任务
+## Tasks
 - [ ] 
 
-## 问题 & 解决方案
+## Problems & Solutions
 
-## 技术笔记
+## Technical Notes
 ```
 
 ## Entry Format
 
-Append under `## 问题 & 解决方案`:
+Append under `## Problems & Solutions`:
 
 ```markdown
-### <问题标题>
-**Context:** 在哪个项目/场景下
-**Problem:** 出了什么问题 / 遇到了什么
-**Solution:** 如何解决的
-**Why it works:** 原理简述（1-2句）
+### <Problem Title>
+**Context:** which project / scenario
+**Problem:** what went wrong or what was encountered
+**Solution:** how it was resolved
+**Why it works:** brief explanation (1-2 sentences)
 ```
 
-Append reusable insights under `## 技术笔记`.
+Append reusable insights under `## Technical Notes`.
 
 ## After Writing
 
