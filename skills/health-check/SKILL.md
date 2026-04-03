@@ -1,6 +1,6 @@
 ---
 name: health-check
-description: This skill should be used when the user says "lint知识库", "health check", "检查wiki", or asks to audit the Obsidian knowledge base for broken links, orphan articles, stale content, or structural issues.
+description: This skill should be used when the user asks to "health check the knowledge base", "audit my Obsidian wiki", "check the knowledge base for broken links", "find orphan articles in my Obsidian vault", "lint the wiki", or wants to detect structural issues, stale content, or missing index entries in the Obsidian knowledge base.
 ---
 
 # Wiki Health Check Workflow

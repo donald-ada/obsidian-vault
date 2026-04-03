@@ -1,6 +1,6 @@
 ---
 name: compile-wiki
-description: This skill should be used when the user says "总结一下", "编译知识库", "把raw里的内容编进wiki", or asks to turn raw source materials into structured wiki articles. Provides the full wiki compilation workflow.
+description: This skill should be used when the user asks to "compile the wiki", "process raw notes into the knowledge base", "turn raw sources into wiki articles in my Obsidian vault", "ingest this URL into the knowledge base", or wants to transform unstructured material in raw/ into structured wiki articles in the Obsidian knowledge base.
 ---
 
 # Wiki Compilation Workflow
