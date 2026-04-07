@@ -1,15 +1,25 @@
 # obsidian-vault — Claude Code Plugin
 
-An LLM-driven Obsidian knowledge base plugin for Claude Code. Operate your knowledge base from **any project directory** — not just when you're inside the vault.
+A Claude Code plugin that connects your Obsidian knowledge base to any project session. Write daily logs, compile wiki articles, search your vault, and audit your knowledge base — all without leaving your terminal.
 
 ## Features
 
-- **Auto daily logging**: Say "记录一下" → structured entry written to today's note
-- **URL ingestion**: Paste a URL → automatically routes to `obsidian:defuddle`
-- **Wiki compilation**: Say "总结一下" → raw materials compiled into wiki articles
-- **Knowledge Q&A**: Say "查一下wiki" → search and answer from your wiki
-- **Health checks**: Say "lint知识库" → find broken links and orphan articles
-- **Works everywhere**: SessionStart hook injects vault context into every session
+- **Daily logging**: Capture notes, bug fixes, and insights directly into today's daily note
+- **Wiki compilation**: Transform raw source materials into structured wiki articles
+- **Knowledge Q&A**: Search and answer questions from your Obsidian wiki
+- **Health checks**: Detect broken links, orphan articles, and missing index entries
+- **URL ingestion**: Paste a URL to fetch and save content via `obsidian:defuddle`
+- **Works everywhere**: SessionStart hook injects vault context into every session, from any project directory
+
+## Skills
+
+| Skill | Trigger Phrases |
+|-------|----------------|
+| `daily-log` | "log this to my Obsidian knowledge base", "record this in my daily note", "write this to my Obsidian daily log" |
+| `compile-wiki` | "compile the wiki", "process raw notes into the knowledge base", "ingest this URL into the knowledge base" |
+| `qa-wiki` | "look this up in my Obsidian knowledge base", "search the wiki for X", "what does my knowledge base say about X" |
+| `health-check` | "health check the knowledge base", "audit my Obsidian wiki", "find orphan articles in my Obsidian vault", "lint the wiki" |
+| `setup` | `/obsidian-vault:setup` or "configure the obsidian-vault plugin" |
 
 ## Requirements
 
@@ -51,18 +61,7 @@ In Claude Code (from any directory):
 
 Enter your vault path when prompted. Config is saved to `~/.claude/obsidian-vault.conf`.
 
-## Trigger Words
-
-| Say | Action |
-|-----|--------|
-| "记录一下" / "记一下" | Write to today's daily note |
-| "总结一下" / "编译知识库" | Compile raw → wiki |
-| "查一下wiki" / "知识库里有" | Q&A against wiki |
-| Paste URL | Fetch with defuddle, save to raw/ |
-| "lint知识库" / "health check" | Audit wiki for issues |
-| "出报告" / "生成报告" | Generate output |
-
-## Vault Structure Expected
+## Vault Structure
 
 ```
 your-vault/
@@ -70,9 +69,9 @@ your-vault/
 ├── wiki/           Compiled knowledge articles
 │   └── _index.md   Master index
 ├── raw/            Source materials
-├── output/         Generated reports & slides
+├── output/         Generated reports
 ├── assets/         Images and media
-└── templates/      Note templates
+└── templates/
     └── daily-note.md
 ```
 
