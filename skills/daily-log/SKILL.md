@@ -54,3 +54,16 @@ Append reusable insights under `## Technical Notes`.
 
 If the insight is reusable beyond today's specific code (patterns, API quirks, tool behaviors), offer to file it into `wiki/<topic>/` as a standalone article.
 Link from daily note: `→ [[wiki/<topic>/<article-name>]]`
+
+## When Adding a Wiki Article
+
+After creating `wiki/<topic>/<article-name>.md`, **always** update `wiki/_index.md`:
+
+1. **Link format**: Use Obsidian wikilink, not Markdown link:
+   ```
+   | [[wiki/topic/article-name\|topic]] | N | Description |
+   ```
+2. **Sync frontmatter**: Update `updated:` in the YAML frontmatter to today's date.
+3. **Sync article count**: Increment the Articles column and the Stats section.
+
+These three steps are mandatory — skip any one and the index becomes stale.

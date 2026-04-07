@@ -40,3 +40,8 @@ Each topic directory has `wiki/<topic>/_index.md`:
 
 `wiki/_index.md` — lists all topic areas with article counts and one-line summaries.
 Regenerate whenever articles are added, removed, or significantly changed.
+
+**Required on every update:**
+- Use Obsidian wikilink format in the table (see `references/wiki-rules.md`)
+- Sync the `updated:` field in the YAML frontmatter to today's date
+- Keep article count in the table row and Stats section in sync
