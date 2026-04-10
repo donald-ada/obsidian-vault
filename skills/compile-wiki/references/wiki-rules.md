@@ -30,19 +30,46 @@ Content with [[wikilinks]] to related concepts.
 
 ## Index Format
 
-Topic index (`wiki/<topic>/_index.md`):
+### Topic index (`wiki/<topic>/_index.md`)
+
+Use a three-column table. The **Keywords** column is critical for agent routing — include all concepts, parameter names, error terms, and synonyms an agent might search for.
+
 ```markdown
+---
+tags: [index]
+updated: YYYY-MM-DD
+---
+
 # <Topic Name>
 
-- [[article-name]] — one-sentence description
-- [[another-article]] — one-sentence description
+| 文章 | 摘要 | 关键词 |
+|------|------|--------|
+| [[wiki/topic/article-name\|Article Title]] | 2-3 sentence summary covering the problem, solution, and key gotchas | keyword1, keyword2, param-name, error-term, synonym |
+| [[wiki/topic/another-article\|Another Title]] | ... | ... |
 ```
 
-Master index (`wiki/_index.md`):
+**Rules for the Keywords column:**
+- Include parameter names, function names, error messages an agent might quote
+- Include synonyms and alternate phrasings (e.g., "内部链接, internal link, hyperlink, 跳转")
+- Include the specific tool/library names in both English and Chinese if relevant
+- Aim for 8-15 keywords per article
+
+### Master index (`wiki/_index.md`)
+
 ```markdown
-# Knowledge Base Index
+---
+tags: [index]
+updated: YYYY-MM-DD
+---
 
-| Topic | Articles | Summary |
-|-------|---------|--------|
-| [[topic/_index\|Topic Name]] | N | One-line description |
+# Wiki Master Index
+
+| Topic | Articles | Description |
+|-------|----------|-------------|
+| [[wiki/topic/_index\|Topic Name]] | N | One-line description covering key sub-topics |
 ```
+
+**Rules:**
+- Link to `_index.md` of each topic, NOT directly to articles
+- Description should name specific sub-topics (not just the domain name)
+- Sync article count and `updated:` date on every change

@@ -32,16 +32,22 @@ For article format and naming conventions, see: `references/wiki-rules.md`
 
 ## Step 4: Update Topic Index
 
-Each topic directory has `wiki/<topic>/_index.md`:
-- Add the new article with title + one-sentence description
-- Keep concise: title + one sentence per entry
+Each topic directory must have `wiki/<topic>/_index.md`. Create it if it doesn't exist.
+
+Use a **three-column table** (see `references/wiki-rules.md` for exact format):
+
+| 文章 | 摘要 | 关键词 |
+|------|------|--------|
+| [[wiki/topic/article\|Title]] | 2-3 sentence summary of the problem, solution, and key gotchas | keyword1, param-name, error-term, synonym |
+
+**The Keywords column must be comprehensive** — include parameter names, function/class names, error messages, synonyms, and alternate phrasings. This is the primary way agents navigate to the right article without opening every file.
 
 ## Step 5: Update Master Index
 
-`wiki/_index.md` — lists all topic areas with article counts and one-line summaries.
-Regenerate whenever articles are added, removed, or significantly changed.
+`wiki/_index.md` — links to each topic's `_index.md` (NOT to individual articles).
 
 **Required on every update:**
-- Use Obsidian wikilink format in the table (see `references/wiki-rules.md`)
+- Link target must be `[[wiki/<topic>/_index\|<Topic>]]`, never a direct article link
+- Description should name specific sub-topics covered, not just the domain name
 - Sync the `updated:` field in the YAML frontmatter to today's date
-- Keep article count in the table row and Stats section in sync
+- Keep article count in sync
