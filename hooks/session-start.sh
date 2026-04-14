@@ -12,16 +12,23 @@ if [[ -f "$CONFIG" ]]; then
   source "$CONFIG"
 fi
 
-VAULT="${VAULT_PATH:-$HOME/Documents/Obsidian Vault}"
 TODAY=$(date +%Y-%m-%d)
 
-# Persist vault path for other hooks in this session
-if [[ -n "${CLAUDE_ENV_FILE:-}" ]]; then
-  printf 'VAULT_PATH="%s"\n' "$VAULT" >> "$CLAUDE_ENV_FILE"
-fi
+# Require explicit config — no default path fallback
+if [[ -z "${VAULT_PATH:-}" ]]; then
+  CONTEXT="<obsidian-vault>\n\
+obsidian-vault plugin is installed but vault path is not configured.\n\
+Run /obsidian-vault:setup to set your vault path and create ~/.claude/obsidian-vault.conf.\n\
+</obsidian-vault>"
+else
+  VAULT="$VAULT_PATH"
 
-# Build context
-CONTEXT="<obsidian-vault>\n\
+  # Persist vault path for other hooks in this session
+  if [[ -n "${CLAUDE_ENV_FILE:-}" ]]; then
+    printf 'VAULT_PATH="%s"\n' "$VAULT" >> "$CLAUDE_ENV_FILE"
+  fi
+
+  CONTEXT="<obsidian-vault>\n\
 The user has an Obsidian knowledge base. Use the skills below when the user explicitly asks to interact with it.\n\n\
 Vault: ${VAULT}\n\
 Today's daily note: ${VAULT}/daily/${TODAY}.md\n\n\
@@ -43,8 +50,9 @@ When the user asks to record, log, or save something to their knowledge base:\n\
   - If the destination or format is ambiguous, ask one focused clarifying question\n\
     before proceeding (e.g. \"Should I add this to today's daily note, or create a wiki article?\").\n\n\
 Full wiki compile rules: ${VAULT}/CLAUDE.md\n\
-If vault path is not configured, run: /obsidian-vault:setup\n\
+To update vault path: /obsidian-vault:setup [new-path]\n\
 </obsidian-vault>"
+fi
 
 # Escape for JSON string
 escaped=$(printf '%s' "$CONTEXT" | python3 -c "

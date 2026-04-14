@@ -61,6 +61,8 @@ In Claude Code (from any directory):
 
 Enter your vault path when prompted. Config is saved to `~/.claude/obsidian-vault.conf`.
 
+> **Required**: The plugin will not activate without this config file. If the file is missing, each session will prompt you to run `/obsidian-vault:setup`.
+
 ## Vault Structure
 
 ```
@@ -80,10 +82,12 @@ your-vault/
 Config file: `~/.claude/obsidian-vault.conf`
 
 ```bash
-VAULT_PATH="/Users/yourname/Documents/Obsidian Vault"
+VAULT_PATH="/absolute/path/to/your/vault"
 ```
 
-To update: `/obsidian-vault:setup /new/vault/path`
+This file is **required**. Without it, the plugin will not know where your vault is and will prompt you to run setup.
+
+To create or update: `/obsidian-vault:setup [vault-path]`
 
 ## License
 

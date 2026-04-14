@@ -9,8 +9,9 @@ Write structured problem/solution entries into today's Obsidian daily note.
 
 ## Determine Vault Path
 
-Read from `~/.claude/obsidian-vault.conf` (key: `VAULT_PATH`).
-Fallback: `~/Documents/Obsidian Vault`.
+Read `VAULT_PATH` from `~/.claude/obsidian-vault.conf`.
+If the file is missing or `VAULT_PATH` is not set, stop and tell the user:
+"Vault path is not configured. Please run `/obsidian-vault:setup` to set it up."
 
 ## Daily Note Path
 
