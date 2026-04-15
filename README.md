@@ -1,4 +1,4 @@
-# obsidian-vault — Claude Code Plugin
+# anthrosidian — Claude Code Plugin
 
 A Claude Code plugin that connects your Obsidian knowledge base to any project session. Write daily logs, compile wiki articles, search your vault, and audit your knowledge base — all without leaving your terminal.
 
@@ -19,7 +19,7 @@ A Claude Code plugin that connects your Obsidian knowledge base to any project s
 | `compile-wiki` | "compile the wiki", "process raw notes into the knowledge base", "ingest this URL into the knowledge base" |
 | `qa-wiki` | "look this up in my Obsidian knowledge base", "search the wiki for X", "what does my knowledge base say about X" |
 | `health-check` | "health check the knowledge base", "audit my Obsidian wiki", "find orphan articles in my Obsidian vault", "lint the wiki" |
-| `setup` | `/obsidian-vault:setup` or "configure the obsidian-vault plugin" |
+| `setup` | `/anthrosidian:setup` or "configure the anthrosidian plugin" |
 
 ## Requirements
 
@@ -34,10 +34,10 @@ Add to `~/.claude/settings.json`:
 
 ```json
 "extraKnownMarketplaces": {
-  "obsidian-vault-plugin": {
+  "anthrosidian-plugin": {
     "source": {
       "source": "github",
-      "repo": "donald-ada/obsidian-vault"
+      "repo": "donald-ada/anthrosidian"
     }
   }
 }
@@ -47,7 +47,7 @@ Add to `~/.claude/settings.json`:
 
 ```json
 "enabledPlugins": {
-  "obsidian-vault@obsidian-vault-plugin": true
+  "anthrosidian@anthrosidian-plugin": true
 }
 ```
 
@@ -56,12 +56,12 @@ Add to `~/.claude/settings.json`:
 In Claude Code (from any directory):
 
 ```
-/obsidian-vault:setup
+/anthrosidian:setup
 ```
 
 Enter your vault path when prompted. Config is saved to `~/.claude/obsidian-vault.conf`.
 
-> **Required**: The plugin will not activate without this config file. If the file is missing, each session will prompt you to run `/obsidian-vault:setup`.
+> **Required**: The plugin will not activate without this config file. If the file is missing, each session will prompt you to run `/anthrosidian:setup`.
 
 ## Vault Structure
 
@@ -87,7 +87,7 @@ VAULT_PATH="/absolute/path/to/your/vault"
 
 This file is **required**. Without it, the plugin will not know where your vault is and will prompt you to run setup.
 
-To create or update: `/obsidian-vault:setup [vault-path]`
+To create or update: `/anthrosidian:setup [vault-path]`
 
 ## License
 
