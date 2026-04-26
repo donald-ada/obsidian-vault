@@ -31,7 +31,7 @@ Read `VAULT_PATH` from `~/.claude/obsidian-vault.conf`. If missing, stop and tel
 
 ### Daily → Wiki drift (Suggestions — the "mining" step)
 
-8. **Recurring problems not yet promoted** — scan all `daily/*.md` `## Problems & Solutions` headings:
+8. **Recurring problems not yet promoted** — scan all `daily/**/*.md` (recursive, year-sharded) `## Problems & Solutions` headings:
    - Cluster `### <title>` headings across days by token overlap (or by exact match if titles are identical)
    - Flag clusters with **≥ 3 occurrences** as wiki-article candidates
    - For each candidate, list: dates, original titles, and any wikilinks already attached. Suggest a topic placement.
@@ -54,7 +54,7 @@ Group findings by severity. Within each severity, group by check number so the u
 
 ## Critical (must fix)
 ### Broken wikilinks (N)
-- `daily/<YYYY-MM-DD>.md` → `[[wiki/<topic>/<missing-article>]]` (target missing)
+- `daily/<YYYY>/<YYYY-MM-DD>.md` → `[[wiki/<topic>/<missing-article>]]` (target missing)
 - ...
 
 ### Topic _index in legacy two-column format (N)

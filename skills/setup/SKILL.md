@@ -37,6 +37,6 @@ VAULT_PATH="/absolute/path/to/your/vault"
 
 4. **Confirm success** with a summary:
    - Config saved to `~/.claude/obsidian-vault.conf`
-   - Today's daily note path: `<vault-path>/daily/YYYY-MM-DD.md`
+   - Today's daily note path: `<vault-path>/daily/<YYYY>/YYYY-MM-DD.md` (sharded by year)
    - Active skills: daily-log, compile-wiki, qa-wiki, health-check
    - To reconfigure: `/anthrosidian:setup [new-path]`

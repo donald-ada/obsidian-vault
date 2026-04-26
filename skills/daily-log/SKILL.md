@@ -15,7 +15,11 @@ If the file is missing or `VAULT_PATH` is not set, stop and tell the user:
 
 ## Daily Note Path
 
-`<VAULT>/daily/<YYYY-MM-DD>.md` (today's date)
+`<VAULT>/daily/<YYYY>/<YYYY-MM-DD>.md` (today's date — daily notes are sharded by year directory)
+
+If `<VAULT>/daily/<YYYY>/` does not yet exist (first note of a new year), create the year directory.
+
+When linking to other daily notes from anywhere in the vault, use **basename wikilinks** (`[[YYYY-MM-DD]]`) — not path-style (`[[daily/YYYY-MM-DD]]` or `[[daily/YYYY/YYYY-MM-DD]]`). Obsidian resolves basenames across all subdirectories, so basename links survive future re-sharding.
 
 ## If Daily Note Doesn't Exist
 

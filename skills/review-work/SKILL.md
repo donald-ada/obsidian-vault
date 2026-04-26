@@ -53,7 +53,9 @@ Resolve "today" from the system clock. Convert all relative phrases ("this week"
 
 ## Collect Daily Notes
 
-List `<VAULT>/daily/*.md`. Match filenames against the resolved range (filename is the date). Read all matching files in one pass — do not stop early.
+Recursively list `<VAULT>/daily/**/*.md` (daily notes are sharded by year directory: `daily/<YYYY>/<YYYY-MM-DD>.md`). Match filenames against the resolved range — the **basename** (`YYYY-MM-DD`) is the date, ignore the directory.
+
+Read all matching files in one pass — do not stop early.
 
 Note any **gaps** (days within the range with no log file) and surface them in the Stats section.
 
