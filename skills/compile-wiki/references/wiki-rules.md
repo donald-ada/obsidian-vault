@@ -5,6 +5,7 @@
 ```markdown
 ---
 tags: [topic-tag]
+aliases: [synonym-1, abbreviation, "error message snippet", "older name"]
 source: "[[raw/source-file]]"
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
@@ -18,6 +19,13 @@ Content with [[wikilinks]] to related concepts.
 - [[related-article-1]]
 - [[related-article-2]]
 ```
+
+**Rules for the `aliases` frontmatter field:**
+- 3-8 alternate names the user might use to reach this article
+- Include English ↔ Chinese pairs when relevant (e.g., `["内部链接", "internal link"]`)
+- Include common abbreviations (e.g., `["EtM", "encrypt-then-mac"]`)
+- Include error messages or specific symptoms users might quote
+- Wikilinks `[[alias]]` resolve to the canonical article when listed here, so picking good aliases is the second line of defense after the topic index Keywords column
 
 ## Conventions
 

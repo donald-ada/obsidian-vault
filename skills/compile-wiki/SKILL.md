@@ -28,7 +28,8 @@ For article format and naming conventions, see: `references/wiki-rules.md`
 - Save to `wiki/<topic>/<article-name>.md`
 - Use `[[wikilinks]]` for cross-references between articles
 - Use `![[embeds]]` for images in `assets/`
-- Add YAML frontmatter: `tags`, `source`, `created`, `updated`
+- Add YAML frontmatter: `tags`, `aliases`, `source`, `created`, `updated`
+  - `aliases:` lists alternate names the article can be reached by — synonyms, abbreviations, error messages, or older naming the user might remember. Obsidian resolves `[[alias]]` wikilinks to the canonical article when listed here. Aim for 3-8 aliases.
 
 ## Step 4: Update Topic Index
 

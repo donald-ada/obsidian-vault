@@ -12,7 +12,20 @@ This is the **review** counterpart to `qa-wiki`. They serve different needs:
 - `review` answers "what have I been working on?" by aggregating raw daily notes.
 Do not mix them — keep wiki retrieval and daily aggregation as separate pipelines.
 
-**Output language:** the report content (titles, narrative, project names, identifiers) follows the user's working language in this conversation. Field labels and section headings stay English for consistency with `daily-log`. The English placeholders in this skill are documentation only.
+**Output language:** the report content follows the user's working language in this conversation. This includes:
+- Top-level title (`# Work Review · ...`)
+- All section headings (`## Snapshot`, `## By Project`, `## Problems Worth Revisiting`, `## Loose Threads`, `## Stats`, `## Diff vs ...`)
+- All topic-bucket headings (`#### Refactor`, `#### Bugfix`, `#### Feature`, etc.)
+- All inline stat labels (`Daily notes:`, `Tasks completed:`, `Top topics:`, `Most active project:`, etc.)
+- Narrative, summaries, and "why worth revisiting" lines
+
+The English headings in this SKILL.md template are **documentation only** — they show structure, not the literal text to write. If the user works in Chinese, render the report in Chinese (e.g. `## 概览`, `## 按项目`, `#### 重构`, `Daily notes:` → `日志篇数:`). Mirror their language verbatim.
+
+**Always English (machine/grep stability):**
+- YAML frontmatter keys: `tags`, `range`, `generated`
+- File path slug (`review-2026-W17.md`, `review-2026-04-baolong-mobileSource.md`)
+- Concrete identifiers preserved verbatim from source (function names, error codes, version numbers, project repo names)
+- Wikilink targets (`[[wiki/...]]`, `[[YYYY-MM-DD#...]]`)
 
 ## Determine Vault Path
 
