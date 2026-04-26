@@ -54,33 +54,33 @@ Group findings by severity. Within each severity, group by check number so the u
 
 ## Critical (must fix)
 ### Broken wikilinks (N)
-- `daily/2026-04-12.md` → `[[wiki/foo/bar]]` (target missing)
+- `daily/<YYYY-MM-DD>.md` → `[[wiki/<topic>/<missing-article>]]` (target missing)
 - ...
 
 ### Topic _index in legacy two-column format (N)
-- `wiki/database/_index.md` — upgrade to three-column (文章 | 摘要 | 关键词)
+- `wiki/<topic>/_index.md` — upgrade to three-column (文章 | 摘要 | 关键词)
 - ...
 
 ## Warnings (should fix)
 ### Articles missing `aliases:` frontmatter (N)
-- `wiki/cryptography/encrypt-then-mac-plaintext-header-security.md`
+- `wiki/<topic>/<article>.md`
 - ...
 
 ### Stale articles (N)
-- `wiki/ml/foo.md` (updated 2026-03-15) ← `raw/foo-source.md` modified 2026-04-20
+- `wiki/<topic>/<article>.md` (updated <YYYY-MM-DD>) ← `raw/<source>.md` modified <YYYY-MM-DD>
 - ...
 
 ## Suggestions (mining — promote daily → wiki)
 ### Recurring problems worth a wiki article (N clusters)
-- **"ClickHouse 不支持 UPDATE/DELETE"** — 3 occurrences (2026-04-22, 2026-04-24, 2026-04-26). Existing wikilink: `[[wiki/database/clickhouse-mysql-migration]]` partially covers it. Suggest a focused article: `wiki/database/clickhouse-alter-update-delete-pattern.md`.
+- **"<problem cluster title>"** — N occurrences (<dates>). Existing wikilink: `[[wiki/<topic>/<existing-article>]]` partially covers it. Suggest a focused article: `wiki/<topic>/<proposed-slug>.md`.
 - ...
 
 ### High-traffic wiki articles (≥ 5 daily-note references)
-- `wiki/cryptography/sm4-cbc-large-payload-bug` — 7 references; Keywords column has 4 entries → expand
+- `wiki/<topic>/<article>` — N references; Keywords column has M entries → expand
 - ...
 
 ### Untouched topics (60-day cooldown)
-- `timesfm` — last daily reference 2026-03-10
+- `<topic>` — last daily reference <YYYY-MM-DD>
 ```
 
 Keep the report scannable. **No fluff.** Empty sections are omitted — if no broken links, drop that subsection entirely.
