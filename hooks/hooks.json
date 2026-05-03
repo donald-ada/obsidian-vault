@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh",
+            "command": "bash \"${CODEX_PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-$PWD}}/hooks/session-start.sh\"",
             "timeout": 10
           }
         ]

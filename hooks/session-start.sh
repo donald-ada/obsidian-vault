@@ -4,7 +4,15 @@
 
 set -euo pipefail
 
-CONFIG="$HOME/.claude/obsidian-vault.conf"
+if [[ -n "${CODEX_PLUGIN_ROOT:-}" || -n "${CODEX_ENV_FILE:-}" ]]; then
+  PLATFORM="Codex"
+  CONFIG="$HOME/.codex/obsidian-vault.conf"
+  SETUP_COMMAND="anthrosidian:setup"
+else
+  PLATFORM="Claude Code"
+  CONFIG="$HOME/.claude/obsidian-vault.conf"
+  SETUP_COMMAND="/anthrosidian:setup"
+fi
 
 # Load user config
 if [[ -f "$CONFIG" ]]; then
@@ -18,20 +26,22 @@ TODAY=$(date +%Y-%m-%d)
 if [[ -z "${VAULT_PATH:-}" ]]; then
   CONTEXT="<anthrosidian>\n\
 anthrosidian plugin is installed but vault path is not configured.\n\
-Run /anthrosidian:setup to set your vault path and create ~/.claude/obsidian-vault.conf.\n\
+Run ${SETUP_COMMAND} to set your vault path and create ${CONFIG}.\n\
 </anthrosidian>"
 else
   VAULT="$VAULT_PATH"
 
   # Persist vault path for other hooks in this session
-  if [[ -n "${CLAUDE_ENV_FILE:-}" ]]; then
+  if [[ -n "${CODEX_ENV_FILE:-}" ]]; then
+    printf 'VAULT_PATH="%s"\n' "$VAULT" >> "$CODEX_ENV_FILE"
+  elif [[ -n "${CLAUDE_ENV_FILE:-}" ]]; then
     printf 'VAULT_PATH="%s"\n' "$VAULT" >> "$CLAUDE_ENV_FILE"
   fi
 
   CONTEXT="<anthrosidian>\n\
-The user has an Obsidian knowledge base. Use the skills below when the user explicitly asks to interact with it.\n\n\
+The user has an Obsidian knowledge base connected to ${PLATFORM}. Use the skills below when the user explicitly asks to interact with it.\n\n\
 Vault: ${VAULT}\n\
-Today's daily note: ${VAULT}/daily/${TODAY}.md\n\n\
+Today's daily note: ${VAULT}/daily/${TODAY:0:4}/${TODAY}.md\n\n\
 Available skills:\n\
   anthrosidian:daily-log    — log / record something to today's daily note\n\
   anthrosidian:compile-wiki — compile raw notes into wiki articles\n\
@@ -49,8 +59,8 @@ When the user asks to record, log, or save something to their knowledge base:\n\
   - If it is clear they mean today's daily note, use anthrosidian:daily-log.\n\
   - If the destination or format is ambiguous, ask one focused clarifying question\n\
     before proceeding (e.g. \"Should I add this to today's daily note, or create a wiki article?\").\n\n\
-Full wiki compile rules: ${VAULT}/CLAUDE.md\n\
-To update vault path: /anthrosidian:setup [new-path]\n\
+Full wiki compile rules: check ${VAULT}/AGENTS.md or ${VAULT}/CLAUDE.md when present\n\
+To update vault path: ${SETUP_COMMAND} [new-path]\n\
 </anthrosidian>"
 fi
 

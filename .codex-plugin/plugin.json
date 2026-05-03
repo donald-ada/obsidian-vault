@@ -1,0 +1,44 @@
+{
+  "name": "anthrosidian",
+  "version": "1.0.8",
+  "description": "LLM-driven Obsidian knowledge base: auto daily logging, wiki compilation, Q&A, work review, and URL ingestion from any project directory",
+  "author": {
+    "name": "Donald Ada",
+    "url": "https://github.com/donald-ada"
+  },
+  "homepage": "https://github.com/donald-ada/anthrosidian",
+  "repository": "https://github.com/donald-ada/anthrosidian",
+  "license": "MIT",
+  "keywords": [
+    "obsidian",
+    "knowledge-base",
+    "wiki",
+    "daily-log",
+    "notes",
+    "zettelkasten"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Anthrosidian",
+    "shortDescription": "Connect Codex sessions to an Obsidian knowledge base",
+    "longDescription": "Use Anthrosidian to write daily development logs, compile raw sources into wiki articles, answer questions from an Obsidian vault, review completed work, and audit wiki health from Codex.",
+    "developerName": "Donald Ada",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/donald-ada/anthrosidian",
+    "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "defaultPrompt": [
+      "Log this to my Obsidian daily note.",
+      "Search my Obsidian wiki for this topic.",
+      "Review my work from this week."
+    ],
+    "brandColor": "#6B7280",
+    "screenshots": []
+  }
+}

@@ -9,9 +9,13 @@ Write structured problem/solution entries into today's Obsidian daily note.
 
 ## Determine Vault Path
 
-Read `VAULT_PATH` from `~/.claude/obsidian-vault.conf`.
+Read `VAULT_PATH` from the active agent config:
+- Codex: `~/.codex/obsidian-vault.conf`
+- Claude Code: `~/.claude/obsidian-vault.conf`
+
+If only one config file exists, use that one.
 If the file is missing or `VAULT_PATH` is not set, stop and tell the user:
-"Vault path is not configured. Please run `/anthrosidian:setup` to set it up."
+"Vault path is not configured. Please run `anthrosidian:setup` in Codex or `/anthrosidian:setup` in Claude Code to set it up."
 
 ## Daily Note Path
 

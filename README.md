@@ -1,6 +1,6 @@
-# anthrosidian — Claude Code Plugin
+# anthrosidian — Claude Code / Codex Plugin
 
-A Claude Code plugin that connects your Obsidian knowledge base to any project session. Write daily logs, compile wiki articles, search your vault, and audit your knowledge base — all without leaving your terminal.
+A Claude Code and Codex plugin that connects your Obsidian knowledge base to any project session. Write daily logs, compile wiki articles, search your vault, and audit your knowledge base — all without leaving your terminal.
 
 ## Features
 
@@ -10,6 +10,7 @@ A Claude Code plugin that connects your Obsidian knowledge base to any project s
 - **Health checks**: Detect broken links, orphan articles, and missing index entries
 - **URL ingestion**: Paste a URL to fetch and save content via `obsidian:defuddle`
 - **Works everywhere**: SessionStart hook injects vault context into every session, from any project directory
+- **Dual plugin support**: Claude Code metadata lives in `.claude-plugin/`; Codex metadata lives in `.codex-plugin/`
 
 ## Skills
 
@@ -23,10 +24,12 @@ A Claude Code plugin that connects your Obsidian knowledge base to any project s
 
 ## Requirements
 
-- [Claude Code](https://claude.ai/code) ≥ 2.0
+- [Claude Code](https://claude.ai/code) ≥ 2.0 or Codex with local plugin support
 - [obsidian-skills](https://github.com/kepano/obsidian-skills) plugin (`obsidian:defuddle`, `obsidian:obsidian-cli`, etc.)
 
 ## Installation
+
+### Claude Code
 
 ### 1. Add the marketplace and install the plugin
 
@@ -45,6 +48,19 @@ In Claude Code, run:
 Enter your vault path when prompted. Config is saved to `~/.claude/obsidian-vault.conf`.
 
 > **Required**: The plugin will not activate without this config file. If the file is missing, each session will prompt you to run `/anthrosidian:setup`.
+
+### Codex
+
+The Codex plugin manifest is `.codex-plugin/plugin.json`. It reuses the same `skills/` and `hooks/` files as Claude Code, with platform-specific config paths handled inside the shared workflows.
+
+Configure the vault from Codex with:
+
+```
+anthrosidian:setup
+```
+
+Codex config is saved to `~/.codex/obsidian-vault.conf`.
+
 ## Vault Structure
 
 ```
@@ -61,7 +77,9 @@ your-vault/
 
 ## Configuration
 
-Config file: `~/.claude/obsidian-vault.conf`
+Claude Code config file: `~/.claude/obsidian-vault.conf`
+
+Codex config file: `~/.codex/obsidian-vault.conf`
 
 ```bash
 VAULT_PATH="/absolute/path/to/your/vault"
@@ -69,7 +87,9 @@ VAULT_PATH="/absolute/path/to/your/vault"
 
 This file is **required**. Without it, the plugin will not know where your vault is and will prompt you to run setup.
 
-To create or update: `/anthrosidian:setup [vault-path]`
+To create or update in Claude Code: `/anthrosidian:setup [vault-path]`
+
+To create or update in Codex: `anthrosidian:setup [vault-path]`
 
 ## License
 
